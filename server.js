@@ -17,7 +17,7 @@ var connection = mysql.createConnection(process.env.JAWSDB_URL || {
     host: "localhost",
     user: "root",
     //ENTER YOUR PASSWORD HERE
-    password: "2gk58d70",
+    password: "",
     database: "task_db"
 });
 
