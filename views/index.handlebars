@@ -1,0 +1,33 @@
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="text-center">To-Do App</h1>
+            <p class="text-center">Your go-to app for keeping your tasks in check!</p>
+        </div>
+    </div>
+    <div class="container-fluid text-center">
+    <form method="post" action="/new">
+    	<textarea name="task" class="col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4" placeholder="enter to-do here"></textarea>
+    	<button type="submit" class="btn btn-success col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4">enter</button>
+    </form>
+    </div>
+    <div class="container-fluid text-center second">
+        <form method="post" action="/update?_method=put">
+            <input class="col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4" type="text" name="id" placeholder="id">
+            <textarea name="task" class="col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4" placeholder="update your list here."></textarea>
+            <button type="submit" class="btn btn-info col-xs-6 col-sm-4 col-xs-offset-3 col-sm-offset-4">update</button>
+        </form>
+    </div>
+    <h2 class="text-center">Your tasks</h1>
+	<ul class="text-center">
+		{{#each task}}
+			<li>
+                <p>{{this.id}}. {{this.task_name}}
+                    <form method="post" action="/delete?_method=delete">
+                        <input class="special" type="hidden" name="id" value="{{this.id}}">
+                            <button type="submit" class="btn btn-danger">x</button>
+                    </form>
+                </p>
+            </li>
+		{{/each}}
+	</ul>
